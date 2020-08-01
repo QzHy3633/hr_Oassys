@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
  */
 
 @RestController
+@RequestMapping("/user")
 public class AoaUserController {
 
     @Autowired
