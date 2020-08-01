@@ -3,8 +3,8 @@ package com.hr.controller;
 import com.hr.entity.AoaUser;
 import com.hr.service.AoaUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 
@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
  * @Versopn：1.0
  */
 
-@RestController
+@Controller
 @RequestMapping("/user")
 public class AoaUserController {
 
