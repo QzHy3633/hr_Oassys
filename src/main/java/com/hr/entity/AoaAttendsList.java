@@ -1,6 +1,6 @@
 package com.hr.entity;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class AoaAttendsList {
     private Long attendsId;
@@ -111,5 +111,52 @@ public class AoaAttendsList {
 
     public void setHolidayStart(Date holidayStart) {
         this.holidayStart = holidayStart;
+    }
+
+    public AoaAttendsList() {
+    }
+
+    public AoaAttendsList(String attendsIp, String attendsRemark, Date attendsTime, Long statusId, Long typeId, Long attendsUserId, String attendHmtime, String weekOfday, Double holidayDays, Date holidayStart) {
+        this.attendsIp = attendsIp;
+        this.attendsRemark = attendsRemark;
+        this.attendsTime = attendsTime;
+        this.statusId = statusId;
+        this.typeId = typeId;
+        this.attendsUserId = attendsUserId;
+        this.attendHmtime = attendHmtime;
+        this.weekOfday = weekOfday;
+        this.holidayDays = holidayDays;
+        this.holidayStart = holidayStart;
+    }
+
+    public AoaAttendsList(Long attendsId, String attendsIp, String attendsRemark, Date attendsTime, Long statusId, Long typeId, Long attendsUserId, String attendHmtime, String weekOfday, Double holidayDays, Date holidayStart) {
+        this.attendsId = attendsId;
+        this.attendsIp = attendsIp;
+        this.attendsRemark = attendsRemark;
+        this.attendsTime = attendsTime;
+        this.statusId = statusId;
+        this.typeId = typeId;
+        this.attendsUserId = attendsUserId;
+        this.attendHmtime = attendHmtime;
+        this.weekOfday = weekOfday;
+        this.holidayDays = holidayDays;
+        this.holidayStart = holidayStart;
+    }
+
+    @Override
+    public String toString() {
+        return "AoaAttendsList{" +
+                "attendsId=" + attendsId +
+                ", attendsIp='" + attendsIp + '\'' +
+                ", attendsRemark='" + attendsRemark + '\'' +
+                ", attendsTime=" + attendsTime +
+                ", statusId=" + statusId +
+                ", typeId=" + typeId +
+                ", attendsUserId=" + attendsUserId +
+                ", attendHmtime='" + attendHmtime + '\'' +
+                ", weekOfday='" + weekOfday + '\'' +
+                ", holidayDays=" + holidayDays +
+                ", holidayStart=" + holidayStart +
+                '}';
     }
 }
