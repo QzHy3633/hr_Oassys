@@ -1,8 +1,14 @@
 package com.hr.entity;
 
+import lombok.*;
+
+import java.io.Serializable;
 import java.sql.Date;
 
-public class AoaAttendsList {
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class AoaAttendsList implements Serializable{
     private Long attendsId;
 
     private String attendsIp;
@@ -25,6 +31,10 @@ public class AoaAttendsList {
 
     private Date holidayStart;
 
+    private Long userId;
+
+    private String userName;
+
     public Long getAttendsId() {
         return attendsId;
     }
@@ -38,7 +48,7 @@ public class AoaAttendsList {
     }
 
     public void setAttendsIp(String attendsIp) {
-        this.attendsIp = attendsIp == null ? null : attendsIp.trim();
+        this.attendsIp = attendsIp;
     }
 
     public String getAttendsRemark() {
@@ -46,7 +56,7 @@ public class AoaAttendsList {
     }
 
     public void setAttendsRemark(String attendsRemark) {
-        this.attendsRemark = attendsRemark == null ? null : attendsRemark.trim();
+        this.attendsRemark = attendsRemark;
     }
 
     public Date getAttendsTime() {
@@ -86,7 +96,7 @@ public class AoaAttendsList {
     }
 
     public void setAttendHmtime(String attendHmtime) {
-        this.attendHmtime = attendHmtime == null ? null : attendHmtime.trim();
+        this.attendHmtime = attendHmtime;
     }
 
     public String getWeekOfday() {
@@ -94,7 +104,7 @@ public class AoaAttendsList {
     }
 
     public void setWeekOfday(String weekOfday) {
-        this.weekOfday = weekOfday == null ? null : weekOfday.trim();
+        this.weekOfday = weekOfday;
     }
 
     public Double getHolidayDays() {
@@ -113,50 +123,19 @@ public class AoaAttendsList {
         this.holidayStart = holidayStart;
     }
 
-    public AoaAttendsList() {
+    public Long getUserId() {
+        return userId;
     }
 
-    public AoaAttendsList(String attendsIp, String attendsRemark, Date attendsTime, Long statusId, Long typeId, Long attendsUserId, String attendHmtime, String weekOfday, Double holidayDays, Date holidayStart) {
-        this.attendsIp = attendsIp;
-        this.attendsRemark = attendsRemark;
-        this.attendsTime = attendsTime;
-        this.statusId = statusId;
-        this.typeId = typeId;
-        this.attendsUserId = attendsUserId;
-        this.attendHmtime = attendHmtime;
-        this.weekOfday = weekOfday;
-        this.holidayDays = holidayDays;
-        this.holidayStart = holidayStart;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public AoaAttendsList(Long attendsId, String attendsIp, String attendsRemark, Date attendsTime, Long statusId, Long typeId, Long attendsUserId, String attendHmtime, String weekOfday, Double holidayDays, Date holidayStart) {
-        this.attendsId = attendsId;
-        this.attendsIp = attendsIp;
-        this.attendsRemark = attendsRemark;
-        this.attendsTime = attendsTime;
-        this.statusId = statusId;
-        this.typeId = typeId;
-        this.attendsUserId = attendsUserId;
-        this.attendHmtime = attendHmtime;
-        this.weekOfday = weekOfday;
-        this.holidayDays = holidayDays;
-        this.holidayStart = holidayStart;
+    public String getUserName() {
+        return userName;
     }
 
-    @Override
-    public String toString() {
-        return "AoaAttendsList{" +
-                "attendsId=" + attendsId +
-                ", attendsIp='" + attendsIp + '\'' +
-                ", attendsRemark='" + attendsRemark + '\'' +
-                ", attendsTime=" + attendsTime +
-                ", statusId=" + statusId +
-                ", typeId=" + typeId +
-                ", attendsUserId=" + attendsUserId +
-                ", attendHmtime='" + attendHmtime + '\'' +
-                ", weekOfday='" + weekOfday + '\'' +
-                ", holidayDays=" + holidayDays +
-                ", holidayStart=" + holidayStart +
-                '}';
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

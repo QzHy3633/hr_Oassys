@@ -147,37 +147,43 @@ color:blue;
 						</span></th>
 						<th scope="col">操作</th>
 					</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
+									<tr th:each="a:${alist}">
+									<td th:hidden="${a.attendsId}"></td >
+									<td th:text="${a.userName}"><span>
+									考勤用户
 									</span></td>
-									<td><span>
-									
-											
-											下班
-											
-											
+									<td th:if="${a.typeId==8}"><span>
+										上班
 									</span></td>
-									
-									<td ><span>
-									2017-10-9 14:05:52
+									<td th:if="${a.typeId==9}"><span>
+										下班
 									</span></td>
-									<td><span>
-									192.168.43.91
+									<td th:text="${a.attendsTime}"><span>
+									考勤时间
 									</span></td>
-									<td>
-									
+									<td th:text="${a.attendsIp}"><span>
+									IP地址
+									</span></td>
+									<td th:text="${a.attendsRemark}">
+										备注
+									</td>
+									<td th:if="${a.statusId==10}">
+
+										<span class="label label-danger">上班迟到</span>
+
+									</td>
+									<td th:if="${a.statusId==11}">
+
+										<span class="label label-danger">下班迟到</span>
+
 									</td>
 									<td>
-												
-												
-												<span class="label label-danger">早退</span>
-									</td>
-									<td><a  href="attendceedit.html?aid=35" class="label xiugai"><span
+										<a  href="attendceedit.html?aid=35" class="label xiugai"><span
 											class="glyphicon glyphicon-edit"></span> 修改</a> <a
 										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
 										href="attdelete?aid=35" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
+											class="glyphicon glyphicon-remove"></span> 删除</a>
+									</td>
 										</tr>
 							</table>
 			</div>

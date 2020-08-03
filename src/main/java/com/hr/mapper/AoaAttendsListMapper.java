@@ -9,10 +9,13 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface AoaAttendsListMapper {
-    /*
-        @Select("select u.user_name as userName,u.user_id as userId , a.* from aoa_attends_list a \n" +
+        /**
+         * 
+         * @return
+         */
+
+        @Select("select u.user_name,u.user_id, a.* from aoa_attends_list a \n" +
                 "\n" +
-                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id;")*/
-    @Select("select * from aoa_attends_list ")
-    List<AoaAttendsList> querylistaoaattend();
+                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id;")
+        public  List<AoaAttendsList> querylistaoaattend();
 }

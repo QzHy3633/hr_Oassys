@@ -24,14 +24,14 @@ public class AoaAttendsListController {
 
         map.addAttribute("alist",alist);
 
-
+        /*
         for (AoaAttendsList aoaAttendsList : alist){
 
 
             System.out.println(aoaAttendsList);
 
         }
-
+        */
         return "attendceview";
     }
 
