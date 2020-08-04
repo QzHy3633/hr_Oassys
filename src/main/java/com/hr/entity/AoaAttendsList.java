@@ -1,8 +1,14 @@
 package com.hr.entity;
 
-import java.util.Date;
+import lombok.*;
 
-public class AoaAttendsList {
+import java.io.Serializable;
+import java.sql.Date;
+
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class AoaAttendsList implements Serializable{
     private Long attendsId;
 
     private String attendsIp;
@@ -25,6 +31,10 @@ public class AoaAttendsList {
 
     private Date holidayStart;
 
+    private Long userId;
+
+    private String userName;
+
     public Long getAttendsId() {
         return attendsId;
     }
@@ -38,7 +48,7 @@ public class AoaAttendsList {
     }
 
     public void setAttendsIp(String attendsIp) {
-        this.attendsIp = attendsIp == null ? null : attendsIp.trim();
+        this.attendsIp = attendsIp;
     }
 
     public String getAttendsRemark() {
@@ -46,7 +56,7 @@ public class AoaAttendsList {
     }
 
     public void setAttendsRemark(String attendsRemark) {
-        this.attendsRemark = attendsRemark == null ? null : attendsRemark.trim();
+        this.attendsRemark = attendsRemark;
     }
 
     public Date getAttendsTime() {
@@ -86,7 +96,7 @@ public class AoaAttendsList {
     }
 
     public void setAttendHmtime(String attendHmtime) {
-        this.attendHmtime = attendHmtime == null ? null : attendHmtime.trim();
+        this.attendHmtime = attendHmtime;
     }
 
     public String getWeekOfday() {
@@ -94,7 +104,7 @@ public class AoaAttendsList {
     }
 
     public void setWeekOfday(String weekOfday) {
-        this.weekOfday = weekOfday == null ? null : weekOfday.trim();
+        this.weekOfday = weekOfday;
     }
 
     public Double getHolidayDays() {
@@ -111,5 +121,21 @@ public class AoaAttendsList {
 
     public void setHolidayStart(Date holidayStart) {
         this.holidayStart = holidayStart;
+    }
+
+    public Long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }

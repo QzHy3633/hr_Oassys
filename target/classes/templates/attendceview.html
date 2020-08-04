@@ -1,16 +1,15 @@
-
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
 <meta charset="UTF-8">
 <title></title>
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-<script type="text/javascript" src="easyui/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/common/box.css" />
-<link rel="stylesheet" type="text/css" href="css/common/checkbox.css" />
-<link href="css/common/checkbox.css" rel="stylesheet" />
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/common/box.css" />
+<link rel="stylesheet" type="text/css" href="../css/common/checkbox.css" />
+<link href="../css/common/checkbox.css" rel="stylesheet" />
 <style type="text/css">
 /* .{
 			width:1100px;
@@ -147,308 +146,43 @@ color:blue;
 						</span></th>
 						<th scope="col">操作</th>
 					</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
+									<tr th:each="a:${alist}">
+									<td th:hidden="${a.attendsId}"></td >
+									<td th:text="${a.userName}"><span>
+									考勤用户
 									</span></td>
-									<td><span>
-									
-											
-											下班
-											
-											
+									<td th:if="${a.typeId==8}"><span>
+										上班
 									</span></td>
-									
-									<td ><span>
-									2017-10-9 14:05:52
+									<td th:if="${a.typeId==9}"><span>
+										下班
 									</span></td>
-									<td><span>
-									192.168.43.91
+									<td th:text="${a.attendsTime}"><span>
+									考勤时间
 									</span></td>
-									<td>
-									
+									<td th:text="${a.attendsIp}"><span>
+									IP地址
+									</span></td>
+									<td th:text="${a.attendsRemark}">
+										备注
+									</td>
+									<td th:if="${a.statusId==10}">
+
+										<span class="label label-info">正常</span>
+
+									</td>
+									<td th:if="${a.statusId==11}">
+
+										<span class="label label-warning">迟到</span>
+
 									</td>
 									<td>
-												
-												
-												<span class="label label-danger">早退</span>
-									</td>
-									<td><a  href="attendceedit.html?aid=35" class="label xiugai"><span
+										<a  href="attendceedit.html?aid=35" class="label xiugai"><span
 											class="glyphicon glyphicon-edit"></span> 修改</a> <a
 										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=35" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
-										</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
-									</span></td>
-									<td><span>
-									
-											上班
-											
-											
-											
-									</span></td>
-									
-									<td ><span>
-									2017-10-9 10:59:13
-									</span></td>
-									<td><span>
-									</span></td>
-									<td>
-									
+										th:href="@{deleaoa(aid=${a.attendsId})}" class="label shanchu"><span
+											class="glyphicon glyphicon-remove"></span> 删除</a>
 									</td>
-									<td>
-												
-												<span class="label label-warning">迟到</span>
-												
-									</td>
-									<td><a  href="attendceedit.html?aid=34" class="label xiugai"><span
-											class="glyphicon glyphicon-edit"></span> 修改</a> <a
-										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=34" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
-										</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
-									</span></td>
-									<td><span>
-									
-											上班
-											
-											
-											
-									</span></td>
-									
-									<td ><span>
-									2017-10-8 10:19:24
-									</span></td>
-									<td><span>
-									</span></td>
-									<td>
-									</td>
-									<td>
-												
-												<span class="label label-warning">迟到</span>
-												
-									</td>
-									<td><a  href="attendceedit.html?aid=33" class="label xiugai"><span
-											class="glyphicon glyphicon-edit"></span> 修改</a> <a
-										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=33" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
-										</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
-									</span></td>
-									<td><span>
-									
-											
-											下班
-											
-											
-									</span></td>
-									
-									<td ><span>
-									2017-10-7 16:24:15
-									</span></td>
-									<td><span>
-									</span></td>
-									<td>
-									</td>
-									<td>
-												<span class="label label-info">正常</span>
-												
-												
-									</td>
-									<td><a  href="attendceedit.html?aid=32" class="label xiugai"><span
-											class="glyphicon glyphicon-edit"></span> 修改</a> <a
-										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=32" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
-										</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
-									</span></td>
-									<td><span>
-									
-											上班
-											
-											
-											
-									</span></td>
-									
-									<td ><span>
-									2017-10-7 16:11:07
-									</span></td>
-									<td><span>
-									</span></td>
-									<td>
-									</td>
-									<td>
-												
-												<span class="label label-warning">迟到</span>
-												
-									</td>
-									<td><a  href="attendceedit.html?aid=31" class="label xiugai"><span
-											class="glyphicon glyphicon-edit"></span> 修改</a> <a
-										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=31" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
-										</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
-									</span></td>
-									<td><span>
-									
-											
-											下班
-											
-											
-									</span></td>
-									
-									<td ><span>
-									2017-10-5 13:29:58
-									</span></td>
-									<td><span>
-									</span></td>
-									<td>
-									</td>
-									<td>
-												
-												
-												<span class="label label-danger">早退</span>
-									</td>
-									<td><a  href="attendceedit.html?aid=30" class="label xiugai"><span
-											class="glyphicon glyphicon-edit"></span> 修改</a> <a
-										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=30" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
-										</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
-									</span></td>
-									<td><span>
-									
-											上班
-											
-											
-											
-									</span></td>
-									
-									<td ><span>
-									2017-10-5 13:26:12
-									</span></td>
-									<td><span>
-									</span></td>
-									<td>
-									</td>
-									<td>
-												
-												<span class="label label-warning">迟到</span>
-												
-									</td>
-									<td><a  href="attendceedit.html?aid=29" class="label xiugai"><span
-											class="glyphicon glyphicon-edit"></span> 修改</a> <a
-										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=29" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
-										</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
-									</span></td>
-									<td><span>
-									
-											上班
-											
-											
-											
-									</span></td>
-									
-									<td ><span>
-									2017-10-3 12:30:51
-									</span></td>
-									<td><span>
-									</span></td>
-									<td>
-									</td>
-									<td>
-												
-												<span class="label label-warning">迟到</span>
-												
-									</td>
-									<td><a  href="attendceedit.html?aid=28" class="label xiugai"><span
-											class="glyphicon glyphicon-edit"></span> 修改</a> <a
-										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=28" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
-										</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
-									</span></td>
-									<td><span>
-									
-											
-											下班
-											
-											
-									</span></td>
-									
-									<td ><span>
-									2017-10-2 18:53:15
-									</span></td>
-									<td><span>
-									</span></td>
-									<td>
-									</td>
-									<td>
-												<span class="label label-info">正常</span>
-												
-												
-									</td>
-									<td><a  href="attendceedit.html?aid=27" class="label xiugai"><span
-											class="glyphicon glyphicon-edit"></span> 修改</a> <a
-										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=27" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
-										</tr>
-									<tr>
-									<td ><span>
-									朱丽叶
-									</span></td>
-									<td><span>
-									
-											上班
-											
-											
-											
-									</span></td>
-									
-									<td ><span>
-									2017-10-2 13:10:48
-									</span></td>
-									<td><span>
-									</span></td>
-									<td>
-									</td>
-									<td>
-												
-												<span class="label label-warning">迟到</span>
-												
-									</td>
-									<td><a  href="attendceedit.html?aid=26" class="label xiugai"><span
-											class="glyphicon glyphicon-edit"></span> 修改</a> <a
-										onclick="{return confirm('删除该记录将不能恢复，确定删除吗？');};" 
-										href="attdelete?aid=26" class="label shanchu"><span
-											class="glyphicon glyphicon-remove"></span> 删除</a></td>
 										</tr>
 							</table>
 			</div>
@@ -463,7 +197,7 @@ color:blue;
 			style="background: #fff; border: 0px; margin-top: 0px; padding: 2px; height: 25px;">
 			<div style="width: 40%; float: left;">
 				<div class="pageInfo" style="margin-left: 5px;">
-					共<span>18</span>条 | 每页<span>10</span>条
+					共<span th:text="${count}"></span>条 | 每页<span>10</span>条
 					| 共<span>2</span>页
 				</div>
 			</div>
