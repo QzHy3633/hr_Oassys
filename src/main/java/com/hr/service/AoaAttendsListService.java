@@ -6,6 +6,11 @@ import java.util.List;
 
 public interface AoaAttendsListService {
 
-    public List<AoaAttendsList> querylistaoaattend();
+    List<AoaAttendsList> querylistaoaattend();
 
+    int countaoaendslist();
+
+    int deleaoa(int aid);
+
+    AoaAttendsList queryid(int aid);
 }

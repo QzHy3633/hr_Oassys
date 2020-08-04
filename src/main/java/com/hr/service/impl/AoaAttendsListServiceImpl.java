@@ -20,4 +20,19 @@ public class AoaAttendsListServiceImpl implements AoaAttendsListService{
     public List<AoaAttendsList> querylistaoaattend() {
         return aoaAttendsListMapper.querylistaoaattend();
     }
+
+    @Override
+    public int countaoaendslist() {
+        return aoaAttendsListMapper.countaoaendslist();
+    }
+
+    @Override
+    public AoaAttendsList queryid(int aid) {
+        return aoaAttendsListMapper.queryid(aid);
+    }
+
+    @Override
+    public int deleaoa(int aid) {
+        return aoaAttendsListMapper.deleaoa(aid);
+    }
 }

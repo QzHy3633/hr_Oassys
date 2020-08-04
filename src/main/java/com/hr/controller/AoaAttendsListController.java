@@ -32,7 +32,32 @@ public class AoaAttendsListController {
 
         }
         */
+
+        int count = aoaAttendsListService.countaoaendslist();
+        map.addAttribute("count",count);
+        //System.out.println(count);
         return "attendceview";
+    }
+
+    @RequestMapping("deleaoa")
+    public String deleaoa(int aid){
+
+
+        aoaAttendsListService.deleaoa(aid);
+
+        return "redirect:/AoaAttendsList/querylist";
+    }
+
+    @RequestMapping("queryid")
+    public  String queryid(int aid ,ModelMap map){
+
+
+        AoaAttendsList aoaAttendsList = aoaAttendsListService.queryid(aid);
+
+        map.addAttribute("aoa",aoaAttendsList);
+
+
+        return "attendceedit";
     }
 
 }
