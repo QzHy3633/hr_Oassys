@@ -32,6 +32,11 @@ public class AoaAttendsListServiceImpl implements AoaAttendsListService{
     }
 
     @Override
+    public List<AoaAttendsList> likeaoa(AoaAttendsList aoaAttendsList) {
+        return aoaAttendsListMapper.likeaoa(aoaAttendsList);
+    }
+
+    @Override
     public int deleaoa(int aid) {
         return aoaAttendsListMapper.deleaoa(aid);
     }

@@ -99,6 +99,20 @@ color:blue;
 								})
 			}) */
 </script>
+	<script>
+
+		$(function () {
+
+			$("#tj").click(function () {
+
+			    $("#myform").submit();
+
+            })
+
+
+        })
+
+	</script>
 </head>
 
 <body style="background-color: #ecf0f5;">
@@ -120,13 +134,14 @@ color:blue;
 		<a class="label label-success" href=""><span
 			class="glyphicon glyphicon-refresh"></span>  刷新 </a>
 
+		<form action="/S4_project/AoaAttendsList/likeaoa" method="post" id="myform">
 		<div class="input-group" style="width:150px;float:right;top:-5px">
-											<input type="text" class="form-control input-sm pull-right baseKey" value="" placeholder="查找..." />
+											<input type="text" class="form-control input-sm pull-right baseKey" value="" name="userName" placeholder="请按照用户名查找..." />
 											<div class="input-group-btn" style="top:-1px;">
-												<a class="btn btn-sm btn-default glyphicon glyphicon-search btn-change baseKetsubmit"></a>
+												<a id="tj" class="btn btn-sm btn-default glyphicon glyphicon-search btn-change baseKetsubmit"></a>
 											</div>
 										</div>
-		
+		</form>
 		
 
 	</div>

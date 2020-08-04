@@ -60,4 +60,19 @@ public class AoaAttendsListController {
         return "attendceedit";
     }
 
+    @RequestMapping("likeaoa")
+    public  String  likeaoa(AoaAttendsList aoaAttendsList,ModelMap map){
+
+
+          //System.out.println(userName);
+
+        List<AoaAttendsList> alist = aoaAttendsListService.likeaoa(aoaAttendsList);
+
+          //System.out.println(alist);
+
+        map.addAttribute("alist",alist);
+
+        return "attendceview";
+    }
+
 }

@@ -10,10 +10,6 @@ import org.apache.ibatis.annotations.Select;
 
 @Mapper
 public interface AoaAttendsListMapper {
-        /**
-         * 
-         * @return
-         */
 
         //查询考勤状态全部信息
         @Select("select u.user_name,u.user_id, a.* from aoa_attends_list a \n" +
@@ -40,4 +36,12 @@ public interface AoaAttendsListMapper {
         AoaAttendsList queryid(int aid);
 
         void  updaoalist();
+
+        //关键字搜索  指定用户名
+        @Select("select u.user_name,u.user_id, a.* from aoa_attends_list a \n" +
+                "\n" +
+                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id\n" +
+                "\n" +
+                "where u.user_name like concat('%',#{userName},'%') LIMIT 0,5;")
+        List<AoaAttendsList> likeaoa(AoaAttendsList aoaAttendsList);
 }

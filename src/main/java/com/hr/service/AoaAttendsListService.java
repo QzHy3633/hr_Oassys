@@ -13,4 +13,6 @@ public interface AoaAttendsListService {
     int deleaoa(int aid);
 
     AoaAttendsList queryid(int aid);
+
+    List<AoaAttendsList> likeaoa(AoaAttendsList aoaAttendsList);
 }
