@@ -43,7 +43,9 @@
             <property name="enableSubPackages" value="false" />
         </javaClientGenerator>
         <!-- 指定数据库表 -->
-        <table schema="" tableName="aoa_user"></table>
+        <table schema="" tableName="aoa_role_"></table>
+        <table schema="" tableName="aoa_dept"></table>
+        <table schema="" tableName="aoa_position"></table>
 
 
         <!-- 有些表的字段需要指定java类型

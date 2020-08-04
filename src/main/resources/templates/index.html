@@ -16,6 +16,21 @@ maximum-scale=1, user-scalable=no">
 <link rel="stylesheet" href="../css/common/skintheme.css" />
 
 	<script type="text/javascript">
+
+		$(function(){|
+
+			$.post("QueryName",function(user){
+
+				alert(user);
+
+			})
+
+		})
+
+
+	</script>
+
+	<script type="text/javascript">
 		$(function(){
 			var themeSkin='blue';
 			if(themeSkin=="blue"){
@@ -157,8 +172,8 @@ body {
 			</div>
 			<div class="pull-left info">
 				<p style="color: #fff; line-height: 1.5;">
-					<span>罗密欧</span><br> <small><span
-						class="glyphicon glyphicon-record" style="color: #00a65a;">
+					<span id="userName1">罗密欧</span><br> <small>
+					<span class="glyphicon glyphicon-record" style="color: #00a65a;">
 					</span> 在线</small>
 				</p>
 			</div>
@@ -557,13 +572,14 @@ body {
 		<li class="dropdown">
 		<!--设置导航栏头像面板--> 
 		<a href="#" class="green-none white" data-toggle="dropdown">
-				<img src="../images//647cbde6-3fba-4d8c-a50f-1a07f9bee417.jpg" class="user-image" /> <span>罗密欧</span>
+				<img src="../images//647cbde6-3fba-4d8c-a50f-1a07f9bee417.jpg" class="user-image" />
+				<span id="userName2">罗密欧</span>
 		</a> <!--设置点击按钮弹出用户面板层-->
 			<ul class="dropdown-menu" style="padding:0;">
 				<li class="user-header green"><img src="../images//647cbde6-3fba-4d8c-a50f-1a07f9bee417.jpg"
 					class="img-circle" style="width: 100px;height:100px;" />
 					<p class="white" style="">
-						<span>总经办 </span> / <span> 超级管理员</span><br> <small>超级管理员</small>
+						<span id="deptName">总经办 </span> / <span id="roleName"> 超级管理员</span><br> <small id="roleName_small">超级管理员</small>
 					</p></li>
 				<li class="user-footer">
 					<div class="pull-left">

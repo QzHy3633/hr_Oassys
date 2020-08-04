@@ -70,6 +70,39 @@ public class AoaUser {
 
     private String pinyin;
 
+    // 部门表中的 部门名称
+    private String deptName;
+
+    // 职位表中的 职位名称
+    private String positionName;
+
+    // 角色表中的 角色名称
+    private String roleName;
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
+
+    public String getPositionName() {
+        return positionName;
+    }
+
+    public void setPositionName(String positionName) {
+        this.positionName = positionName;
+    }
+
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
+    }
+
     public Long getUserId() {
         return userId;
     }

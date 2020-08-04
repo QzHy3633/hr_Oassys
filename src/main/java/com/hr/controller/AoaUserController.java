@@ -5,6 +5,7 @@ import com.hr.service.AoaUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
 
@@ -30,6 +31,13 @@ public class AoaUserController {
             session.setAttribute("user",aoaUser);
         }
         return "index";
+    }
+
+    @RequestMapping("QueryName")
+    @ResponseBody
+    public AoaUser QueryName(HttpSession session){
+        AoaUser user = (AoaUser) session.getAttribute("user");
+        return user;
     }
 
 
