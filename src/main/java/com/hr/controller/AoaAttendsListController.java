@@ -2,6 +2,7 @@ package com.hr.controller;
 
 
 import com.hr.entity.AoaAttendsList;
+import com.hr.entity.AoaStatusList;
 import com.hr.service.AoaAttendsListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -56,7 +57,12 @@ public class AoaAttendsListController {
 
         map.addAttribute("aoa",aoaAttendsList);
 
+        //System.out.println(aoaAttendsList+"================");
 
+        //获取所有的考勤状态
+        List<AoaStatusList> slist = aoaAttendsListService.querystatu();
+
+        map.addAttribute("slist",slist);
         return "attendceedit";
     }
 
@@ -73,6 +79,17 @@ public class AoaAttendsListController {
         map.addAttribute("alist",alist);
 
         return "attendceview";
+    }
+
+    //修改考勤信息
+    @RequestMapping("updaoa")
+    public String updaoa(AoaAttendsList aoaAttendsList){
+
+
+        aoaAttendsListService.updaoalist(aoaAttendsList);
+
+        return "redirect:/AoaAttendsList/querylist";
+
     }
 
 }

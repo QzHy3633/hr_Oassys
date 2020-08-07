@@ -70,11 +70,33 @@
     
 </style>
 		<title></title>
-		
+		<script>
+
+			$(function () {
+
+			    $("#save").click(function () {
+
+			        if ($("#myform")==""){
+
+                        alert("修改失败 请重试！！！")
+
+					}else {
+
+                        $("#myform").submit();
+
+                        alert("修改成功")
+
+					}
+
+                })
+
+            })
+
+		</script>
 	</head>
 	<body>
 		<div class="box increase">
-			<form action="attendcesave" method="post">
+			<form action="/S4_project/AoaAttendsList/updaoa" method="post" id="myform">
 			<div class="box-header">
 				<a class="btn label-back" href="javascript:void(0);"  onclick="window.history.back();"> 
 					<span class="glyphicon glyphicon-chevron-left" ></span>返回</a>
@@ -82,25 +104,23 @@
 			<div class="box-body">
 			
 				<div class="row">
+
 					<div class="col-md-6 form-group">
 						<label class="control-label">
 							<span>状态</span>
 						</label>
-						<select class="form-control" name="status">
+						<!--隐藏考勤信息ID-->
+						<input type="hidden" name="attendsId"  th:value="${aoa.attendsId}">
+						<select class="form-control" name="statusId">
 
-									<option th:text="aoa.">状态</option>
-
-									<!--<option >正常</option>-->
-									<!--<option >迟到</option>-->
-									<!--<option selected>早退</option>-->
-
+									<option th:text="${aoa.statusName}" th:value="${aoa.statusId}">状态</option>
+									<option th:each="s:${slist}" th:text="${s.statusName}" th:value="${s.statusId}"></option>
 						</select>
 					</div>
 					<div class="col-md-6 form-group">
 						<label class="control-label">备注</label>
-						<input name="remark"  class="form-control remark" value=""/>
+						<input name="attendsRemark"  class="form-control remark" th:value="${aoa.attendsRemark}"/>
 					</div>
-					<input type="hidden" name="id"  value="35" > 
 				</div>
 				
 				<div class="row">
@@ -108,11 +128,8 @@
 						<label class="control-label">
 							<span>类型</span>
 						</label>
-						<select class="form-control" name="status" disabled="disabled">
-									<option >上班</option>
-									<option selected>下班</option>
-									<option >请假</option>
-									<option >出差</option>
+						<select class="form-control" name="typeId" disabled="disabled">
+									<option th:text="${aoa.typeName}" th:value="${aoa.typeId}">考勤类型</option>
 						</select>
 					</div>
 				</div>
@@ -120,8 +137,8 @@
 			</div>
 			
 			<div class="box-footer">
-				<input class="btn btn-primary" id="save" type="submit" value="保存"  />
-				<input class="btn btn-default active" id="cancel" type="submit" value="取消" onclick="window.history.back();"/>
+				<input class="btn btn-primary" id="save"  value="保存"  />
+				<input class="btn btn-default active" id="cancel" value="取消" onclick="window.history.back();"/>
 			</div>
 			</form>
 		</div>

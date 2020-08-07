@@ -1,6 +1,7 @@
 package com.hr.service.impl;
 
 import com.hr.entity.AoaAttendsList;
+import com.hr.entity.AoaStatusList;
 import com.hr.mapper.AoaAttendsListMapper;
 import com.hr.service.AoaAttendsListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,16 @@ public class AoaAttendsListServiceImpl implements AoaAttendsListService{
     @Override
     public List<AoaAttendsList> likeaoa(AoaAttendsList aoaAttendsList) {
         return aoaAttendsListMapper.likeaoa(aoaAttendsList);
+    }
+
+    @Override
+    public void updaoalist(AoaAttendsList aoaAttendsList) {
+        aoaAttendsListMapper.updaoalist(aoaAttendsList);
+    }
+
+    @Override
+    public List<AoaStatusList> querystatu() {
+        return aoaAttendsListMapper.querystatu();
     }
 
     @Override

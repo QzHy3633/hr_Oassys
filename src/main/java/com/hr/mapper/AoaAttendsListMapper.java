@@ -4,9 +4,11 @@ import com.hr.entity.AoaAttendsList;
 
 import java.util.List;
 
+import com.hr.entity.AoaStatusList;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.apache.ibatis.annotations.Update;
 
 @Mapper
 public interface AoaAttendsListMapper {
@@ -28,14 +30,24 @@ public interface AoaAttendsListMapper {
         int deleaoa(int aid);
 
         //点击修改查询出对应的数据 跳转到修改界面
-        @Select("select u.user_name,u.user_id, a.* from aoa_attends_list a \n" +
+        @Select("select t.status_name,y.type_name, a.* from aoa_attends_list a\n" +
                 "\n" +
-                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id \n" +
+                "LEFT JOIN aoa_status_list t on a.status_id = t.status_id\n" +
                 "\n" +
-                "where attends_id = #{aid}")
+                "LEFT JOIN aoa_type_list y on a.type_id = y.type_id\n" +
+                "\n" +
+                "where a.attends_id = #{aid}")
         AoaAttendsList queryid(int aid);
 
-        void  updaoalist();
+        //获取所有考勤状态信息
+        @Select("SELECT * from aoa_status_list")
+        List<AoaStatusList> querystatu();
+
+        //修改考勤信息
+        @Update("UPDATE aoa_attends_list SET attends_remark = #{attendsRemark}, status_id=#{statusId}  \n" +
+                "\n" +
+                "WHERE attends_id= #{attendsId}")
+        void  updaoalist(AoaAttendsList aoaAttendsList);
 
         //关键字搜索  指定用户名
         @Select("select u.user_name,u.user_id, a.* from aoa_attends_list a \n" +

@@ -35,6 +35,10 @@ public class AoaAttendsList implements Serializable{
 
     private String userName;
 
+    private String statusName;
+
+    private String typeName;
+
     public Long getAttendsId() {
         return attendsId;
     }
@@ -137,5 +141,21 @@ public class AoaAttendsList implements Serializable{
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getStatusName() {
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
     }
 }
