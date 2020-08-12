@@ -38,6 +38,11 @@ public class AoaAttendsListServiceImpl implements AoaAttendsListService{
     }
 
     @Override
+    public List<AoaAttendsList> queryweeklyreport() {
+        return aoaAttendsListMapper.queryweeklyreport();
+    }
+
+    @Override
     public void updaoalist(AoaAttendsList aoaAttendsList) {
         aoaAttendsListMapper.updaoalist(aoaAttendsList);
     }

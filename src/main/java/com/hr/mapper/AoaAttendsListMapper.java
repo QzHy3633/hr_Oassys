@@ -4,6 +4,7 @@ import com.hr.entity.AoaAttendsList;
 
 import java.util.List;
 
+import com.hr.entity.AoaDept;
 import com.hr.entity.AoaStatusList;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Mapper;
@@ -56,4 +57,14 @@ public interface AoaAttendsListMapper {
                 "\n" +
                 "where u.user_name like concat('%',#{userName},'%') LIMIT 0,5;")
         List<AoaAttendsList> likeaoa(AoaAttendsList aoaAttendsList);
+//===========================================================================================================================================
+        //查询周报表数据列表
+        @Select("select d.dept_name,u.user_name,t.type_name,a.* from aoa_attends_list a\n" +
+                "\n" +
+                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id\n" +
+                "\n" +
+                "LEFT JOIN aoa_dept d on d.dept_id = u.dept_id\n" +
+                "\n" +
+                "LEFT JOIN  aoa_type_list t on t.type_id = a.type_id LIMIT 0,10")
+        List<AoaAttendsList> queryweeklyreport();
 }

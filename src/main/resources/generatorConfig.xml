@@ -47,8 +47,9 @@
         <!--<table schema="" tableName="aoa_role_"></table>-->
         <!--<table schema="" tableName="aoa_dept"></table>-->
         <!--<table schema="" tableName="aoa_position"></table>-->
-        <table schema="" tableName="aoa_type_list"></table>
-        <table schema="" tableName="aoa_status_list"></table>
+        <!--<table schema="" tableName="aoa_type_list"></table>-->
+        <!--<table schema="" tableName="aoa_status_list"></table>-->
+        <!--<table schema="" tableName="aoa_dept"></table>-->
 
         <!-- 有些表的字段需要指定java类型
          <table schema="" tableName="">

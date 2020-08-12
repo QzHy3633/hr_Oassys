@@ -31,13 +31,23 @@ public class AoaAttendsList implements Serializable{
 
     private Date holidayStart;
 
-    private Long userId;
+    private Long userId;//用户ID
 
-    private String userName;
+    private String userName;//用户姓名
 
-    private String statusName;
+    private String statusName;//状态名称
 
-    private String typeName;
+    private String typeName;//类型名称
+
+    private String deptName;//部门名称
+
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public void setDeptName(String deptName) {
+        this.deptName = deptName;
+    }
 
     public Long getAttendsId() {
         return attendsId;

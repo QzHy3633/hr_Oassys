@@ -20,4 +20,6 @@ public interface AoaAttendsListService {
     List<AoaStatusList> querystatu();
 
     void  updaoalist(AoaAttendsList aoaAttendsList);
+
+    List<AoaAttendsList> queryweeklyreport();
 }

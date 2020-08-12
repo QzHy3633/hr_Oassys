@@ -91,5 +91,15 @@ public class AoaAttendsListController {
         return "redirect:/AoaAttendsList/querylist";
 
     }
+//==========================================================================================================================================
+    //查询考勤周报表
+    @RequestMapping("queryweeklyreport")
+    public String queryweeklyreport(ModelMap map){
 
+        List<AoaAttendsList> aoalist = aoaAttendsListService.queryweeklyreport();
+
+        map.addAttribute("aoalist",aoalist);
+
+        return "attendceweektable";
+    }
 }

@@ -1,7 +1,14 @@
 package com.hr.entity;
 
-import java.sql.Date;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
+import java.util.Date;
+
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class AoaDept {
     private Long deptId;
 

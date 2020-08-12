@@ -1,21 +1,20 @@
-
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-<script type="text/javascript" src="easyui/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/common/box.css" />
-<link rel="stylesheet" type="text/css" href="css/common/checkbox.css" />
-<link href="css/common/checkbox.css" rel="stylesheet" />
-<link href="css/common/iconfont.css" rel="stylesheet" />
-<link href="css/attendce/weektable.css" rel="stylesheet"/>
-<script type="text/javascript" src="js/iconfont.js"></script> 
-<script	type="text/javascript" src="plugins/My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="js/attendce/weektable.js"></script>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/common/box.css" />
+<link rel="stylesheet" type="text/css" href="../css/common/checkbox.css" />
+<link href="../css/common/checkbox.css" rel="stylesheet" />
+<link href="../css/common/iconfont.css" rel="stylesheet" />
+<link href="../css/attendce/weektable.css" rel="stylesheet"/>
+<script type="text/javascript" src="../js/iconfont.js"></script>
+<script	type="text/javascript" src="../plugins/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../js/attendce/weektable.js"></script>
 </head>
 	<body>
 	<div class="row" style="padding-top:10px">
@@ -66,24 +65,51 @@
 						<th>星期日</th>
 					</tr>
 		
-							    <tr>
-						<td>总经办</td>
-						<td>朱丽叶</td>
-			<td class="report">
-			</td>
-			<td class="report">
-			</td>
-			<td class="report">
-			</td>
-			<td class="report">
-			</td>
-			<td class="report">
-			</td>
-			<td class="report">
-			</td>
-			<td class="report">
-			</td>
-					</tr>
+			<tr th:each="a:${aoalist}">
+						<td th:text="${a.deptName}">部门</td>
+						<td th:text="${a.userName}">用户姓名</td>
+						<td class="report">
+							<span th:if="${a.weekOfday=='星期一'}">
+								<span th:text="${a.typeName+'：'+a.attendHmtime}"></span>
+							</span>
+						</td>
+						<td class="report">
+							<span th:if="${a.weekOfday=='星期二'}">
+								<span th:text="${a.typeName+'：'+a.attendHmtime}"></span>
+							</span>
+
+						</td>
+						<td class="report">
+							<span th:if="${a.weekOfday=='星期三'}">
+								<span th:text="${a.typeName+'：'+a.attendHmtime}"></span>
+							</span>
+
+						</td>
+						<td class="report">
+							<span th:if="${a.weekOfday=='星期四'}">
+								<span th:text="${a.typeName+'：'+a.attendHmtime}"></span>
+							</span>
+
+						</td>
+						<td class="report">
+							<span th:if="${a.weekOfday=='星期五'}">
+								<span th:text="${a.typeName+'：'+a.attendHmtime}"></span>
+							</span>
+
+						</td>
+						<td class="report">
+							<span th:if="${a.weekOfday=='星期六'}">
+								<span th:text="${a.typeName+'：'+a.attendHmtime}"></span>
+							</span>
+
+						</td>
+						<td class="report">
+							<span th:if="${a.weekOfday=='星期日'}">
+								<span th:text="${a.typeName+'：'+a.attendHmtime}"></span>
+							</span>
+
+						</td>
+			</tr>
 			</table>
 			
 <div class="box-footer no-padding" style="margin-top: -20px;">
