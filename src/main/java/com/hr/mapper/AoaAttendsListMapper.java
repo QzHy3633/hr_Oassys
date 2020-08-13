@@ -2,7 +2,9 @@ package com.hr.mapper;
 
 import com.hr.entity.AoaAttendsList;
 
+import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 import com.hr.entity.AoaDept;
 import com.hr.entity.AoaStatusList;
@@ -67,4 +69,16 @@ public interface AoaAttendsListMapper {
                 "\n" +
                 "LEFT JOIN  aoa_type_list t on t.type_id = a.type_id LIMIT 0,10")
         List<AoaAttendsList> queryweeklyreport();
+
+        //查询每周的报表数据
+        @Select("select d.dept_name,u.user_name,t.type_name,a.* from aoa_attends_list a\n" +
+                "\n" +
+                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id\n" +
+                "\n" +
+                "LEFT JOIN aoa_dept d on d.dept_id = u.dept_id\n" +
+                "\n" +
+                "LEFT JOIN  aoa_type_list t on t.type_id = a.type_id\n" +
+                "\n" +
+                "where attends_time BETWEEN #{start} AND #{end} ORDER BY attends_time ASC")
+        List<AoaAttendsList> queraoatime(Date start , Date end);
 }

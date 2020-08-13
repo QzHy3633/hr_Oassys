@@ -15,6 +15,186 @@
 <script type="text/javascript" src="../js/iconfont.js"></script>
 <script	type="text/javascript" src="../plugins/My97DatePicker/WdatePicker.js"></script>
 <script type="text/javascript" src="../js/attendce/weektable.js"></script>
+
+
+		<script>
+			$(function () {
+
+					$("#xia").click(function () {
+							var start = $("#start").html();
+              var end = $("#end").html();
+              //alert(start +' ' + end);
+
+							$.post("/S4_project/AoaAttendsList/queraoatime",{"start":start,"end":end},function (aoalist) {
+                  //$("#ListTable").html(' ');
+
+									var str = "";
+
+                  str += '<tr> ';
+                  str += ' <th>部门</th> ';
+                  str += ' <th>成员</th> ';
+                  str += ' <th>星期一</th> ';
+                  str += ' <th>星期二</th> ';
+                  str += ' <th>星期三</th> ';
+                  str += ' <th>星期四</th> ';
+                  str += ' <th>星期五</th> ';
+                  str += ' <th>星期六</th> ';
+                  str += ' <th>星期日</th> ';
+                  str += ' </tr> ';
+
+                  $(aoalist).each(function (index,a) {
+
+							        //alert(a.typeName+"  " +a.attendHmtime);
+                      str += ' <tr > ';
+                      str += ' <td>'+a.deptName+'</td> ';
+                      str += ' <td>'+a.userName+'</td> ';
+                      str += ' <td class='+'report'+'>';
+													if (a.weekOfday == "星期一"){
+                   	         str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+												}
+                      str += ' </td> ';
+
+
+                      str += '<td class='+'report'+'> ';
+												if (a.weekOfday == "星期二"){
+														str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+												}
+                      str += '</td> ';
+
+                      str += '<td class='+'report'+'> ';
+												if (a.weekOfday == "星期三"){
+														str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+												}
+                      str += '</td> ';
+
+                      str += '<td class='+'report'+'> ';
+												if (a.weekOfday == "星期四"){
+														str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+												}
+                      str += '</td> ';
+
+                      str += '<td class='+'report'+'> ';
+												if (a.weekOfday == "星期五"){
+														str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+												}
+                      str += '</td> ';
+
+                      str += ' <td class='+'report'+'> ';
+												if (a.weekOfday == "星期六"){
+														str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+												}
+                      str += '</td> ';
+
+                      str += '<td class='+'report'+'> ';
+												if (a.weekOfday == "星期日"){
+														str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+												}
+                      str += '</td> ';
+
+
+                      str += '</tr> ';
+
+
+                  })
+
+									$("#ListTable").html(str);
+                  
+              })
+
+          })
+
+      })
+		</script>
+
+		<script>
+			$(function () {
+
+			    $("#up").click(function () {
+
+              var start = $("#start").html();
+              var end = $("#end").html();
+              //alert(start +' ' + end);
+
+              $.post("/S4_project/AoaAttendsList/queraoatime",{"start":start,"end":end},function (aoalist) {
+                  //$("#ListTable").html(' ');
+
+                  var str = "";
+
+                  str += '<tr> ';
+                  str += ' <th>部门</th> ';
+                  str += ' <th>成员</th> ';
+                  str += ' <th>星期一</th> ';
+                  str += ' <th>星期二</th> ';
+                  str += ' <th>星期三</th> ';
+                  str += ' <th>星期四</th> ';
+                  str += ' <th>星期五</th> ';
+                  str += ' <th>星期六</th> ';
+                  str += ' <th>星期日</th> ';
+                  str += ' </tr> ';
+
+                  $(aoalist).each(function (index,a) {
+
+                      //alert(a.typeName+"  " +a.attendHmtime);
+                      str += ' <tr > ';
+                      str += ' <td>'+a.deptName+'</td> ';
+                      str += ' <td>'+a.userName+'</td> ';
+                      str += ' <td class='+'report'+'>';
+                      if (a.weekOfday == "星期一"){
+                          str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+                      }
+                      str += ' </td> ';
+
+
+                      str += '<td class='+'report'+'> ';
+                      if (a.weekOfday == "星期二"){
+                          str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+                      }
+                      str += '</td> ';
+
+                      str += '<td class='+'report'+'> ';
+                      if (a.weekOfday == "星期三"){
+                          str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+                      }
+                      str += '</td> ';
+
+                      str += '<td class='+'report'+'> ';
+                      if (a.weekOfday == "星期四"){
+                          str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+                      }
+                      str += '</td> ';
+
+                      str += '<td class='+'report'+'> ';
+                      if (a.weekOfday == "星期五"){
+                          str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+                      }
+                      str += '</td> ';
+
+                      str += ' <td class='+'report'+'> ';
+                      if (a.weekOfday == "星期六"){
+                          str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+                      }
+                      str += '</td> ';
+
+                      str += '<td class='+'report'+'> ';
+                      if (a.weekOfday == "星期日"){
+                          str += ' <span>'+a.typeName+ ':  '+a.attendHmtime+'</span> ';
+                      }
+                      str += '</td> ';
+
+
+                      str += '</tr> ';
+
+
+                  })
+
+                  $("#ListTable").html(str);
+
+              })
+
+          })
+
+      })
+		</script>
 </head>
 	<body>
 	<div class="row" style="padding-top:10px">
@@ -31,15 +211,16 @@
 	<div class="col-md-12">
 		<div class="box">
 			<div class="box-header ">
-				<a class="label  label-back lastweek">
+				<a class="label  label-back lastweek" id="up">
 					<span class="glyphicon glyphicon-chevron-left"></span>
 					上一周
 				</a>
 				
-				<a class="label  label-back nextweek" >
+				<a class="label  label-back nextweek" id="xia">
 					<span class="glyphicon glyphicon-chevron-right"></span>
 					下一周
 				</a>
+				<!--start end-->
 				<span id="start"></span>
 				至
 				<span id="end"></span>
@@ -52,7 +233,7 @@
 			<div class="box-body">
 			<div id="refresh" class="thistable">
 
-<table class="table table-striped table-hover table-bordered table-responsive">
+<table class="table table-striped table-hover table-bordered table-responsive" id="ListTable">
 					<tr>
 						<th>部门</th>
 						<th>成员</th>
@@ -118,8 +299,8 @@
 			style="background: #fff; border: 0px; margin-top: 0px; padding: 2px; height: 25px;">
 			<div style="width: 40%; float: left;">
 				<div class="pageInfo" style="margin-left: 5px;">
-					共<span>1</span>条 | 每页<span>10</span>条
-					| 共<span>1</span>页
+					共<span>55</span>条 | 每页<span>10</span>条
+					| 共<span>5</span>页
 				</div>
 			</div>
 			<div style="width: 60%; float: left;">

@@ -8,8 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/AoaAttendsList")
@@ -101,5 +106,25 @@ public class AoaAttendsListController {
         map.addAttribute("aoalist",aoalist);
 
         return "attendceweektable";
+    }
+
+    //点击查询每周的报表数据
+    @ResponseBody
+    @RequestMapping("queraoatime")
+    public List<AoaAttendsList> queraoatime(Date start,Date end){
+
+        //System.out.println(start + "==" + end );
+        /*Map<String,Object> map = new HashMap<>();
+        map.put("start",start);
+        map.put("end",end);
+        System.out.println(map+"=============");*/
+        List<AoaAttendsList>  aoalist = aoaAttendsListService.queraoatime(start,end);
+       /* for (AoaAttendsList aoaAttendsList : aoalist){
+
+
+            System.out.println(aoaAttendsList);
+
+        }*/
+        return aoalist;
     }
 }

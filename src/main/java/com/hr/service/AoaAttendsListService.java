@@ -3,7 +3,9 @@ package com.hr.service;
 import com.hr.entity.AoaAttendsList;
 import com.hr.entity.AoaStatusList;
 
+import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 public interface AoaAttendsListService {
 
@@ -22,4 +24,6 @@ public interface AoaAttendsListService {
     void  updaoalist(AoaAttendsList aoaAttendsList);
 
     List<AoaAttendsList> queryweeklyreport();
+
+    List<AoaAttendsList> queraoatime(Date start, Date end);
 }

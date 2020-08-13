@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class AoaAttendsListServiceImpl implements AoaAttendsListService{
@@ -50,6 +52,11 @@ public class AoaAttendsListServiceImpl implements AoaAttendsListService{
     @Override
     public List<AoaStatusList> querystatu() {
         return aoaAttendsListMapper.querystatu();
+    }
+
+    @Override
+    public List<AoaAttendsList> queraoatime(Date start, Date end) {
+        return aoaAttendsListMapper.queraoatime(start, end);
     }
 
     @Override
