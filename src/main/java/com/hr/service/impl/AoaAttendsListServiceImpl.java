@@ -60,6 +60,16 @@ public class AoaAttendsListServiceImpl implements AoaAttendsListService{
     }
 
     @Override
+    public List<AoaAttendsList> queryaoaliebiao() {
+        return aoaAttendsListMapper.queryaoaliebiao();
+    }
+
+    @Override
+    public List<AoaAttendsList> querylikename(AoaAttendsList aoaAttendsList) {
+        return aoaAttendsListMapper.querylikename(aoaAttendsList);
+    }
+
+    @Override
     public int deleaoa(int aid) {
         return aoaAttendsListMapper.deleaoa(aid);
     }

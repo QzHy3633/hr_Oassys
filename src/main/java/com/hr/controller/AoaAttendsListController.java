@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.sql.Date;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Controller
 @RequestMapping("/AoaAttendsList")
@@ -108,7 +105,7 @@ public class AoaAttendsListController {
         return "attendceweektable";
     }
 
-    //点击查询每周的报表数据
+    //点击上一周下一周查询每周的报表数据
     @ResponseBody
     @RequestMapping("queraoatime")
     public List<AoaAttendsList> queraoatime(Date start,Date end){
@@ -126,5 +123,27 @@ public class AoaAttendsListController {
 
         }*/
         return aoalist;
+    }
+
+    @RequestMapping("querylikename")
+    public String querylikename( AoaAttendsList aoaAttendsList, ModelMap map){
+
+        List<AoaAttendsList> aoalist = aoaAttendsListService.querylikename(aoaAttendsList);
+
+        map.addAttribute("aoalist",aoalist);
+
+        return "attendceweektable";
+    }
+//========================================================================================================================================
+
+    @RequestMapping("queryliebiao")
+    public String queryliebiao(ModelMap map){
+
+
+        List<AoaAttendsList> aoalist = aoaAttendsListService.queryaoaliebiao();
+
+        map.addAttribute("aoalist",aoalist);
+
+        return "attendcelist";
     }
 }

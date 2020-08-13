@@ -163,33 +163,31 @@ color:blue;
 					</tr>
 									<tr th:each="a:${alist}">
 									<td th:hidden="${a.attendsId}"></td >
-									<td th:text="${a.userName}"><span>
-									考勤用户
-									</span></td>
-									<td th:if="${a.typeId==8}"><span>
-										上班
-									</span></td>
-									<td th:if="${a.typeId==9}"><span>
-										下班
-									</span></td>
-									<td th:text="${a.attendsTime}"><span>
-									考勤时间
-									</span></td>
-									<td th:text="${a.attendsIp}"><span>
-									IP地址
-									</span></td>
+									<td>
+										<span th:text="${a.userName}">
+											考勤用户
+										</span>
+									</td>
+									<td>
+										<span th:text="${a.typeName}">
+											考勤类型
+										</span>
+									</td>
+									<td>
+										<span th:text="${a.attendsTime}">
+											考勤时间
+										</span>
+									</td>
+									<td>
+										<span th:text="${a.attendsIp}">
+											IP地址
+										</span>
+									</td>
 									<td th:text="${a.attendsRemark}">
 										备注
 									</td>
-									<td th:if="${a.statusId==10}">
-
-										<span class="label label-info">正常</span>
-
-									</td>
-									<td th:if="${a.statusId==11}">
-
-										<span class="label label-warning">迟到</span>
-
+									<td>
+										<span th:class="'label' +' '+${a.statusColor}" th:text="${a.statusName}">考勤状态</span>
 									</td>
 									<td>
 										<a th:href="@{queryid(aid=${a.attendsId})}" class="label xiugai"><span
@@ -213,7 +211,7 @@ color:blue;
 			<div style="width: 40%; float: left;">
 				<div class="pageInfo" style="margin-left: 5px;">
 					共<span th:text="${count}"></span>条 | 每页<span>10</span>条
-					| 共<span>2</span>页
+					| 共<span>6</span>页
 				</div>
 			</div>
 			<div style="width: 60%; float: left;">

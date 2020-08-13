@@ -17,9 +17,13 @@ import org.apache.ibatis.annotations.Update;
 public interface AoaAttendsListMapper {
 
         //查询考勤状态全部信息
-        @Select("select u.user_name,u.user_id, a.* from aoa_attends_list a \n" +
+        @Select("select t.status_name,y.type_name,t.status_color, u.user_name, a.* from aoa_attends_list a\n" +
                 "\n" +
-                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id LIMIT 0,10;")
+                "LEFT JOIN aoa_status_list t on a.status_id = t.status_id\n" +
+                "\n" +
+                "LEFT JOIN aoa_type_list y on a.type_id = y.type_id\n" +
+                "\n" +
+                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id  LIMIT 0,10")
         List<AoaAttendsList> querylistaoaattend();
 
         //统计考勤数据
@@ -81,4 +85,24 @@ public interface AoaAttendsListMapper {
                 "\n" +
                 "where attends_time BETWEEN #{start} AND #{end} ORDER BY attends_time ASC")
         List<AoaAttendsList> queraoatime(Date start , Date end);
+
+        //考勤周报表关键字查询-用户名字
+        @Select("select d.dept_name,u.user_name,t.type_name,a.* from aoa_attends_list a\n" +
+                "\n" +
+                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id\n" +
+                "\n" +
+                "LEFT JOIN aoa_dept d on d.dept_id = u.dept_id\n" +
+                "\n" +
+                "LEFT JOIN  aoa_type_list t on t.type_id = a.type_id\n" +
+                "\n" +
+                "WHERE u.user_name like concat('%',#{userName},'%') LIMIT 0,5;")
+        List<AoaAttendsList> querylikename(AoaAttendsList aoaAttendsList);
+
+        //查询考勤列表
+        @Select("select t.status_name,y.type_name,t.status_color, a.* from aoa_attends_list a\n" +
+                "\n" +
+                "LEFT JOIN aoa_status_list t on a.status_id = t.status_id\n" +
+                "\n" +
+                "LEFT JOIN aoa_type_list y on a.type_id = y.type_id LIMIT 0,10")
+        List<AoaAttendsList> queryaoaliebiao();
 }

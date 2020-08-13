@@ -41,6 +41,16 @@ public class AoaAttendsList implements Serializable{
 
     private String deptName;//部门名称
 
+    private String statusColor;//状态颜色
+
+    public String getStatusColor() {
+        return statusColor;
+    }
+
+    public void setStatusColor(String statusColor) {
+        this.statusColor = statusColor;
+    }
+
     public String getDeptName() {
         return deptName;
     }

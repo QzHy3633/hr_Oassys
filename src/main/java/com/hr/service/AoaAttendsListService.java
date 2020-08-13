@@ -26,4 +26,8 @@ public interface AoaAttendsListService {
     List<AoaAttendsList> queryweeklyreport();
 
     List<AoaAttendsList> queraoatime(Date start, Date end);
+
+    List<AoaAttendsList> querylikename(AoaAttendsList aoaAttendsList);
+
+    List<AoaAttendsList> queryaoaliebiao();
 }
