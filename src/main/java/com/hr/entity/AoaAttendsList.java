@@ -43,6 +43,67 @@ public class AoaAttendsList implements Serializable{
 
     private String statusColor;//状态颜色
 
+    private String zt;//别名
+
+    private String zc;//别名
+
+    private String cd;//别名
+
+    private String qj;//别名
+
+    private String cc;//别名
+
+    private String kg;//别名
+
+
+    public String getZt() {
+        return zt;
+    }
+
+    public void setZt(String zt) {
+        this.zt = zt;
+    }
+
+    public String getZc() {
+        return zc;
+    }
+
+    public void setZc(String zc) {
+        this.zc = zc;
+    }
+
+    public String getCd() {
+        return cd;
+    }
+
+    public void setCd(String cd) {
+        this.cd = cd;
+    }
+
+    public String getQj() {
+        return qj;
+    }
+
+    public void setQj(String qj) {
+        this.qj = qj;
+    }
+
+    public String getCc() {
+        return cc;
+    }
+
+    public void setCc(String cc) {
+        this.cc = cc;
+    }
+
+    public String getKg() {
+        return kg;
+    }
+
+    public void setKg(String kg) {
+        this.kg = kg;
+    }
+
     public String getStatusColor() {
         return statusColor;
     }

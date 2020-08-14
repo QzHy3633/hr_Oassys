@@ -1,21 +1,20 @@
-
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" />
-<script type="text/javascript" src="easyui/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/common/box.css" />
-<link rel="stylesheet" type="text/css" href="css/common/checkbox.css" />
-<link href="css/common/checkbox.css" rel="stylesheet" />
-<link href="css/common/iconfont.css" rel="stylesheet" />
-<link href="css/attendce/monthtable.css" rel="stylesheet"/>
-<script type="text/javascript" src="js/iconfont.js"></script> 
-<script	type="text/javascript" src="plugins/My97DatePicker/WdatePicker.js"></script>
-<script type="text/javascript" src="js/attendce/monthtable.js"></script>
+<link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css" />
+<script type="text/javascript" src="../easyui/jquery.min.js"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="../css/common/box.css" />
+<link rel="stylesheet" type="text/css" href="../css/common/checkbox.css" />
+<link href="../css/common/checkbox.css" rel="stylesheet" />
+<link href="../css/common/iconfont.css" rel="stylesheet" />
+<link href="../css/attendce/monthtable.css" rel="stylesheet"/>
+<script type="text/javascript" src="../js/iconfont.js"></script>
+<script	type="text/javascript" src="../plugins/My97DatePicker/WdatePicker.js"></script>
+<script type="text/javascript" src="../js/attendce/monthtable.js"></script>
 </head>
 <body>
 	<div class="row" style="padding-top: 10px">
@@ -66,16 +65,40 @@
 					<th>旷工</th>
 				</tr>
 				
-										<tr>
-						    <td>总经办</td>
-							<td>朱丽叶</td>
-					     	     	<td>-</td>
-					     	     	<td>-</td>
-					     	     	<td>-</td>
-					     	     	<td>-</td>
-					     	     	<td>-</td>
-					     	     	<td>-</td>
-						</tr> 	
+				<tr th:each="a:${aoalist}">
+					<td th:text="${a.deptName}">部门</td>
+					<td th:text="${a.userName}">用户姓名</td>
+					<td>
+						<span class="label label-info" th:text="${a.zc}">
+							考勤状态正常
+						</span>
+					</td>
+					<td>
+						<span class="label label-warning" th:text="${a.cd}">
+							考勤状态迟到
+						</span>
+					</td>
+					<td>
+						<span class="label label-danger" th:text="${a.zt}">
+							考勤状态早退
+						</span>
+					</td>
+					<td>
+						<span class="label label-primary" th:text="${a.qj}">
+							考勤状态请假
+						</span>
+					</td>
+					<td>
+						<span class="label label-success" th:text="${a.cc}">
+							考勤状态出差
+						</span>
+					</td>
+					<td>
+						<span class="label label-danger" th:text="${a.kg}">
+							考勤状态旷工
+						</span>
+					</td>
+				</tr>
 			</table>
 <div class="box-footer no-padding" style="margin-top: -20px;">
 	<div style="padding: 5px;">

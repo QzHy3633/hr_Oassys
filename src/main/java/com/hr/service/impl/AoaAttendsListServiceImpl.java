@@ -70,6 +70,11 @@ public class AoaAttendsListServiceImpl implements AoaAttendsListService{
     }
 
     @Override
+    public List<AoaAttendsList> queryyue() {
+        return aoaAttendsListMapper.queryyue();
+    }
+
+    @Override
     public int deleaoa(int aid) {
         return aoaAttendsListMapper.deleaoa(aid);
     }

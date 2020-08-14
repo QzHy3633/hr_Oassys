@@ -136,6 +136,7 @@ public class AoaAttendsListController {
     }
 //========================================================================================================================================
 
+    /*查询考勤列表*/
     @RequestMapping("queryliebiao")
     public String queryliebiao(ModelMap map){
 
@@ -145,5 +146,25 @@ public class AoaAttendsListController {
         map.addAttribute("aoalist",aoalist);
 
         return "attendcelist";
+    }
+
+//========================================================================================================================================
+
+    //考勤月报表
+    @RequestMapping("queryyue")
+    public String queryyue(ModelMap map){
+
+        List<AoaAttendsList> aoalist = aoaAttendsListService.queryyue();
+
+        map.addAttribute("aoalist",aoalist);
+
+        /*for (AoaAttendsList aoaAttendsList : aoalist){
+
+
+            System.out.println(aoaAttendsList);
+
+        }*/
+
+        return "attendcemonthtable";
     }
 }

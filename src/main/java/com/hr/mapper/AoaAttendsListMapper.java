@@ -97,7 +97,7 @@ public interface AoaAttendsListMapper {
                 "\n" +
                 "WHERE u.user_name like concat('%',#{userName},'%') LIMIT 0,5;")
         List<AoaAttendsList> querylikename(AoaAttendsList aoaAttendsList);
-
+//===========================================================================================================================================
         //查询考勤列表
         @Select("select t.status_name,y.type_name,t.status_color, a.* from aoa_attends_list a\n" +
                 "\n" +
@@ -105,4 +105,29 @@ public interface AoaAttendsListMapper {
                 "\n" +
                 "LEFT JOIN aoa_type_list y on a.type_id = y.type_id LIMIT 0,10")
         List<AoaAttendsList> queryaoaliebiao();
+//===========================================================================================================================================
+
+        //查询月报表+分组统计
+        @Select("select \n" +
+                "\n" +
+                "d.dept_name,u.user_name,t.status_name,a.status_id,a.attends_time,\n" +
+                "\n" +
+                "sum(CASE status_name WHEN \"早退\" THEN 1 ELSE 0 END) AS \"zt\",\n" +
+                "sum(CASE status_name WHEN \"正常\" THEN 1 ELSE 0 END) AS \"zc\" ,\n" +
+                "sum(CASE status_name WHEN \"迟到\" THEN 1 ELSE 0 END) AS \"cd\" ,\n" +
+                "sum(CASE status_name WHEN \"请假\" THEN 1 ELSE 0 END) AS \"qj\",\n" +
+                "sum(CASE status_name WHEN \"出差\" THEN 1 ELSE 0 END) AS \"cc\" ,\n" +
+                "sum(CASE status_name WHEN \"旷工\" THEN 1 ELSE 0 END) AS \"kg\"\n" +
+                "\n" +
+                "\n" +
+                "from aoa_attends_list a\n" +
+                "\n" +
+                "LEFT JOIN aoa_user u on a.attends_user_id = u.user_id\n" +
+                "\n" +
+                "LEFT JOIN aoa_dept d on d.dept_id = u.dept_id\n" +
+                "\n" +
+                "LEFT JOIN aoa_status_list t on a.status_id = t.status_id\n" +
+                "\n" +
+                "GROUP BY user_name")
+        List<AoaAttendsList> queryyue();
 }

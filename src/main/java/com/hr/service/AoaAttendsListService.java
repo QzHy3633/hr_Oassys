@@ -30,4 +30,6 @@ public interface AoaAttendsListService {
     List<AoaAttendsList> querylikename(AoaAttendsList aoaAttendsList);
 
     List<AoaAttendsList> queryaoaliebiao();
+
+    List<AoaAttendsList> queryyue();
 }
